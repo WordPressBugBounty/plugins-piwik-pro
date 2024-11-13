@@ -2,8 +2,8 @@
 Contributors: piwikpro, piotrpress
 Tags: Piwik PRO, Piwik, analytics, website stats, woocommerce
 Requires at least: 5.7
-Tested up to: 6.6.1
-Stable tag: 1.3.6
+Tested up to: 6.7
+Stable tag: 1.3.7
 Requires PHP: 7.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
@@ -39,11 +39,6 @@ Manage consents and data subject requests in the same platform where data is col
 = Plugin is not working on my site =
 
 Make sure your WordPress theme has the `wp_body_open()` function right after the opening `<body>` tag, otherwise the container won't work.
-
-= What's the difference between the containers? =
-
-* **Basic container (async):** This container holds your tracking code and is used to handle most tags.
-* **Additional container (sync):** Add this container if you want to use sync tags. It loads tags before the page content loads.
 
 = WooCommerce: Does this plugin automatically track ecommerce? =
 
@@ -91,9 +86,8 @@ For more information, read our article about [Content Security Policy](https://d
 2. Type in the **Container address (URL)**.
 3. Type in your **Site ID**. [Where to find it?](https://help.piwik.pro/support/questions/find-website-id/)
 4. Leave **Basic container (async)** checked. This container holds your tracking code and is used to handle most tags.
-5. Check **Additional container (sync)** if you want to add the container for sync tags.
-6. Optionally rename the **Data layer**.
-7. Click **Save changes**.
+5. Optionally rename the **Data layer**.
+6. Click **Save changes**.
 
 = Multisite =
 
@@ -107,6 +101,12 @@ The plugin can be activated and used for just about any use case.
 1. Settings page
 
 == Changelog ==
+
+= 1.3.7 =
+**Release date: 13.11.2024**
+
+* Info: Removed sync container.
+* Test: Tested up to WordPress 6.7
 
 = 1.3.6 =
 **Release date: 04.09.2024**

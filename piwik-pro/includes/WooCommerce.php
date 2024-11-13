@@ -35,8 +35,7 @@ if ( ! class_exists( __NAMESPACE__ . '\WooCommerce' ) ) {
 
         static public function enabled() {
             if ( ! class_exists( 'WooCommerce' ) ) return false;
-            if ( ! Plugin::instance()->settings( 'sync' ) and ! Plugin::instance()->settings( 'async' ) ) return false;
-            foreach ( [ 'url', 'id', 'layer', 'woocommerce' ] as $key ) if ( ! Plugin::instance()->settings( $key ) ) return false;
+            foreach ( [ 'url', 'id', 'layer', 'async', 'woocommerce' ] as $key ) if ( ! Plugin::instance()->settings( $key ) ) return false;
 
             return true;
         }

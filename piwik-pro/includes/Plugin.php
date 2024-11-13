@@ -34,7 +34,6 @@ if ( ! class_exists( __NAMESPACE__ . '\Plugin' ) ) {
             'url' => '',
             'id' => '',
             'layer' => 'dataLayer',
-            'sync' => false,
             'async' => true,
             'woocommerce' => true
         ];
@@ -68,17 +67,6 @@ if ( ! class_exists( __NAMESPACE__ . '\Plugin' ) ) {
             return $actions;
         }
 
-        public function action_wp_head() {
-            foreach ( [ 'url', 'id', 'layer', 'sync' ] as $key ) if ( ! $this->settings[ $key ] ) return;
-
-            if ( strtotime( '2024-10-07' ) > time() )
-                echo wp_get_inline_script_tag(
-                    ( $this->settings[ 'nonce' ] ? self::render( 'nonce', $this->settings ) : '' ) .
-                    self::render( 'sync', $this->settings ),
-                    $this->settings[ 'nonce' ] ? [ 'nonce' => $this->settings[ 'nonce' ] ] : []
-                );
-        }
-
         public function action_wp_body_open() {
             foreach ( [ 'url', 'id', 'layer', 'async' ] as $key ) if ( ! $this->settings[ $key ] ) return;
 
@@ -89,8 +77,7 @@ if ( ! class_exists( __NAMESPACE__ . '\Plugin' ) ) {
         }
 
         public function action_wp_footer() {
-            foreach ( [ 'url', 'id', 'layer' ] as $key ) if ( ! $this->settings[ $key ] ) return;
-            if ( ! $this->settings[ 'sync' ] and ! $this->settings[ 'async' ] ) return;
+            foreach ( [ 'url', 'id', 'layer', 'async' ] as $key ) if ( ! $this->settings[ $key ] ) return;
 
             echo wp_get_inline_script_tag(
                 self::render( 'push', [ 'data' => [

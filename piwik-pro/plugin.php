@@ -4,7 +4,7 @@
  * Plugin Name:       Piwik PRO
  * Plugin URI:        https://wordpress.org/plugins/piwik-pro/
  * Description:       Adds the Piwik PRO container (with tracking code) to your WordPress site.
- * Version:           1.3.6
+ * Version:           1.3.7
  * Requires at least: 5.7
  * Requires PHP:      7.4
  * Author:            Piwik PRO

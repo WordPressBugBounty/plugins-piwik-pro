@@ -105,27 +105,7 @@ if ( ! class_exists( __NAMESPACE__ . '\Settings' ) ) {
                                                         ]
                                                     ]
                                                 ]
-                                            ], ( strtotime( '2024-10-07' ) > time() ) ? [
-                                                'sync' => [
-                                                    'title' => '',
-                                                    'default' => false,
-                                                    'sanitize' => [ $this, 'sanitize_checkbox' ],
-                                                    'render' => [
-                                                        'callback' => [ $this, 'render_checkbox' ],
-                                                        'template' => 'input',
-                                                        'args' => [
-                                                            'field' => 'sync',
-                                                            'value' => true,
-                                                            'atts' => [
-                                                                'type' => 'checkbox'
-                                                            ],
-                                                            'after' => Plugin::__( 'Additional container (sync)' ),
-                                                            'description' => Plugin::__( 'Add this container if you want to use sync tags. It loads tags before the page content loads.' ) . '<br />' .
-                                                                             '<p><span class="notice notice-warning">' . Plugin::__( 'Support for the sync tags will be sunset on October 7, 2024. We recommend using async tags instead.' ) . '</span></p>'
-                                                        ]
-                                                    ]
-                                                ]
-                                            ] : [], [
+                                            ], [
                                                 'layer' => [
                                                     'title' => Plugin::__( 'Data layer' ),
                                                     'default' => 'dataLayer',
