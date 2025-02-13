@@ -35,7 +35,7 @@ if ( ! trait_exists( __NAMESPACE__ . '\Singleton' ) ) {
         public function __wakeup() {
             _doing_it_wrong( __METHOD__, __( 'Cheatin&#8217; uh?' ), '' );
         }
-        
+
         protected function __construct() {
             _doing_it_wrong( __METHOD__, __( 'Cheatin&#8217; uh?' ), '' );
         }

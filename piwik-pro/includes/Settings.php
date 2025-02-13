@@ -38,6 +38,11 @@ if ( ! class_exists( __NAMESPACE__ . '\Settings' ) ) {
                 self::OPTION => [
                     'pages' => [
                         self::PAGE => [
+                            'render' => [
+                                'args' => [
+                                    'header' => ''
+                                ]
+                            ],
                             'title' => Plugin::__( 'Piwik PRO' ),
                             'menu' => [
                                 'title' => Plugin::__( 'Piwik PRO' ),
@@ -49,7 +54,11 @@ if ( ! class_exists( __NAMESPACE__ . '\Settings' ) ) {
                                 [
                                     'sections' => [
                                         [
-                                            'title' => Plugin::__( 'Settings' ),
+                                            'render' => [
+                                                'args' => [
+                                                    'content' => '<a href="https://piwik.pro/wp-plugin-header-url/" target="_blank"><img src="https://piwik.pro/wp-plugin-header-img/" id="wp-plugin-header-img" /></a>'
+                                                ]
+                                            ],
                                             'fields' => array_merge( [
                                                 'url' => [
                                                     'title' => Plugin::__( 'Container address (URL)' ),
@@ -81,27 +90,9 @@ if ( ! class_exists( __NAMESPACE__ . '\Settings' ) ) {
                                                                 'type' => 'text',
                                                                 'class' => 'regular-text'
                                                             ],
-                                                            'description' => Plugin::__( 'This is the unique ID for your site in Piwik PRO. <a href="https://help.piwik.pro/support/questions/find-website-id/" target="_blank">Where to find it?</a>' )
-                                                        ]
-                                                    ]
-                                                ],
-                                                'async' => [
-                                                    'title' => Plugin::__( 'Containers' ),
-                                                    'default' => false,
-                                                    'sanitize' => [ $this, 'sanitize_checkbox' ],
-                                                    'render' => [
-                                                        'callback' => [ $this, 'render_checkbox' ],
-                                                        'template' => 'input',
-                                                        'args' => [
-                                                            'field' => 'async',
-                                                            'value' => true,
-                                                            'atts' => [
-                                                                'type' => 'checkbox'
-                                                            ],
-                                                            'after' => Plugin::__( 'Basic container (async)' ),
-                                                            'description' => Plugin::__( "This container holds your tracking code and is used to handle most tags.<br /><br />
-                                                                             <strong>Note:</strong> Make sure your WordPress theme has the <code>wp_body_open()</code> function<br />
-                                                                             right after the opening <code>&lt;body&gt;</code> tag, otherwise the container won’t work." )
+                                                            'description' => Plugin::__( 'This is the unique ID for your site in Piwik PRO. <a href="https://help.piwik.pro/support/questions/find-website-id/" target="_blank">Where to find it?</a><br /><br />
+                                                                             <strong>Note:</strong> If you’re using WordPress <strong>Classic Theme</strong> make sure it has the <code>wp_body_open()</code><br />
+                                                                             function right after the opening <code>&lt;body&gt;</code> tag, otherwise the container won’t work.' )
                                                         ]
                                                     ]
                                                 ]
@@ -154,10 +145,16 @@ if ( ! class_exists( __NAMESPACE__ . '\Settings' ) ) {
             ] );
         }
 
+        public function action_admin_enqueue_scripts( $page ) {
+            if ( 'settings_page_' . Plugin::get( 'slug' ) !== $page ) return;
+            \wp_register_style( Plugin::get( 'slug' ) . '-admin', Plugin::get( 'url' ) . 'assets/styles/admin.css', [], Plugin::get( 'version' ) );
+            \wp_enqueue_style( Plugin::get( 'slug' ) . '-admin' );
+        }
+
         protected function sanitize_url( $value ) {
             $value = rtrim( sanitize_text_field( $value ), '/' );
             if ( ! filter_var( $value, FILTER_VALIDATE_URL ) ) {
-                $this->notice( 'Wrong <code>Container address (URL)</code> value.' );
+                $this->notice( Plugin::__( 'Wrong <code>Container address (URL)</code> value.' ) );
                 return get_option( self::OPTION )[ 'url' ];
             }
             return $value;
@@ -166,7 +163,7 @@ if ( ! class_exists( __NAMESPACE__ . '\Settings' ) ) {
         protected function sanitize_id( $value ) {
             $value = strtolower( sanitize_text_field( $value ) );
             if ( preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/', $value ) !== 1 ) {
-                $this->notice( 'Wrong <code>Site ID</code> value.' );
+                $this->notice( Plugin::__( 'Wrong <code>Site ID</code> value.' ) );
                 return get_option( self::OPTION )[ 'id' ];
             }
             return $value;
@@ -175,7 +172,7 @@ if ( ! class_exists( __NAMESPACE__ . '\Settings' ) ) {
         protected function sanitize_layer( $value ) {
             $value = sanitize_text_field( $value );
             if ( preg_match('/^[a-zA-Z_$][0-9a-zA-Z_$]*$/', $value ) !== 1 ) {
-                $this->notice( 'Wrong <code>Data layer</code> value.' );
+                $this->notice( Plugin::__( 'Wrong <code>Data layer</code> value.' ) );
                 return get_option( self::OPTION )[ 'layer' ];
             }
             return $value;

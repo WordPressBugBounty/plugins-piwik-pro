@@ -102,7 +102,7 @@ if ( ! class_exists( __NAMESPACE__ . '\Settings' ) ) {
                             if ( isset( $tab[ 'title' ] ) )
                                 $tabs[ $tab_id ] = $tab[ 'title' ];
 
-                        echo $this->render( $page[ 'render' ][ 'callback' ], $page[ 'render' ][ 'template' ] ?: 'page', array_merge( $page[ 'render' ][ 'args' ],
+                        echo $this->render( $page[ 'render' ][ 'callback' ], $page[ 'render' ][ 'template' ] ?: 'page', wp_parse_args( $page[ 'render' ][ 'args' ],
                             [
                                 'option_name' => $option_name,
                                 'option_group' => $setting[ 'group' ] ?: $page_slug,

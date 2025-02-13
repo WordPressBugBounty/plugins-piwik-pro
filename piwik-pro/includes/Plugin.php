@@ -34,7 +34,6 @@ if ( ! class_exists( __NAMESPACE__ . '\Plugin' ) ) {
             'url' => '',
             'id' => '',
             'layer' => 'dataLayer',
-            'async' => true,
             'woocommerce' => true
         ];
 
@@ -68,7 +67,7 @@ if ( ! class_exists( __NAMESPACE__ . '\Plugin' ) ) {
         }
 
         public function action_wp_body_open() {
-            foreach ( [ 'url', 'id', 'layer', 'async' ] as $key ) if ( ! $this->settings[ $key ] ) return;
+            foreach ( [ 'url', 'id', 'layer' ] as $key ) if ( ! $this->settings[ $key ] ) return;
 
             echo wp_get_inline_script_tag(
                 self::render( 'async', $this->settings ),
@@ -77,7 +76,7 @@ if ( ! class_exists( __NAMESPACE__ . '\Plugin' ) ) {
         }
 
         public function action_wp_footer() {
-            foreach ( [ 'url', 'id', 'layer', 'async' ] as $key ) if ( ! $this->settings[ $key ] ) return;
+            foreach ( [ 'url', 'id', 'layer' ] as $key ) if ( ! $this->settings[ $key ] ) return;
 
             echo wp_get_inline_script_tag(
                 self::render( 'push', [ 'data' => [

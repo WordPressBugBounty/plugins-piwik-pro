@@ -3,7 +3,7 @@ Contributors: piwikpro, piotrpress
 Tags: Piwik PRO, Piwik, analytics, website stats, woocommerce
 Requires at least: 5.7
 Tested up to: 6.7
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 Requires PHP: 7.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
@@ -38,7 +38,7 @@ Manage consents and data subject requests in the same platform where data is col
 
 = Plugin is not working on my site =
 
-Make sure your WordPress theme has the `wp_body_open()` function right after the opening `<body>` tag, otherwise the container won't work.
+If you’re using WordPress **Classic Theme** make sure it has the `wp_body_open()` function right after the opening `<body>` tag, otherwise the container won't work.
 
 = WooCommerce: Does this plugin automatically track ecommerce? =
 
@@ -101,6 +101,12 @@ The plugin can be activated and used for just about any use case.
 1. Settings page
 
 == Changelog ==
+
+= 1.3.8 =
+**Release date: 13.02.2025**
+
+* Fix: Fixed PHP Notice: `Function _load_textdomain_just_in_time was called incorrectly`.
+* Test: Tested up to WordPress 6.7.2
 
 = 1.3.7 =
 **Release date: 13.11.2024**

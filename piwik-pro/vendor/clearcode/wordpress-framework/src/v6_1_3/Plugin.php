@@ -52,7 +52,7 @@ if ( ! class_exists( __NAMESPACE__ . '\Plugin' ) ) {
         protected function set_plugin_data( $file ) {
             if ( ! function_exists( 'get_plugin_data' ) ) require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-            $data = get_plugin_data( $file );
+            $data = get_plugin_data( $file, false, false );
 
             $data['plugin_uri']  = $data['PluginURI'];
             $data['author_uri']  = $data['AuthorURI'];
