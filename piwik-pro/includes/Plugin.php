@@ -80,7 +80,7 @@ if ( ! class_exists( __NAMESPACE__ . '\Plugin' ) ) {
 
             echo wp_get_inline_script_tag(
                 self::render( 'push', [ 'data' => [
-                    'setTrackingSource',
+                    'setTrackingSourceProvider',
                     'wordpress',
                     self::get( 'version' )
                 ] ] )

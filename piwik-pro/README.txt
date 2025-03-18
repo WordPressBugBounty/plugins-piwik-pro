@@ -3,7 +3,7 @@ Contributors: piwikpro, piotrpress
 Tags: Piwik PRO, Piwik, analytics, website stats, woocommerce
 Requires at least: 5.7
 Tested up to: 6.7
-Stable tag: 1.3.8
+Stable tag: 1.3.9
 Requires PHP: 7.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
@@ -102,6 +102,11 @@ The plugin can be activated and used for just about any use case.
 
 == Changelog ==
 
+= 1.3.9 =
+**Release date: 18.03.2025**
+
+* Fix: Fixed JS Error: `The method setTrackingSource is registered more than once in "_paq" variable.`.
+
 = 1.3.8 =
 **Release date: 13.02.2025**
 
@@ -164,7 +169,7 @@ The plugin can be activated and used for just about any use case.
 = 1.2.0 =
 **Release date: 06.02.2023**
 
-* Add: Added support for `getTrackingSource()` Piwik PRO's event.
+* Add: Added support for `setTrackingSource()` Piwik PRO's event.
 * Add: Added support for `trackEcommerceCartUpdate()` and `trackEcommerceOrder()` Piwik PRO's events for `WooCommerce` plugin.
 * Fix: Removed `piwik_pro` option in every site in multisite installation during uninstallation.
 
