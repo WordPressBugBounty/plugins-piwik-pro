@@ -69,9 +69,13 @@ if ( ! class_exists( __NAMESPACE__ . '\Plugin' ) ) {
         public function action_wp_body_open() {
             foreach ( [ 'url', 'id', 'layer' ] as $key ) if ( ! $this->settings[ $key ] ) return;
 
+            $attributes = [];
+            if ( $this->settings[ 'cookiebot' ] ) $attributes[ 'data-cookieconsent' ] = 'ignore';
+            if ( $this->settings[ 'nonce' ] ) $attributes[ 'nonce' ] = $this->settings[ 'nonce' ];
+
             echo wp_get_inline_script_tag(
                 self::render( 'async', $this->settings ),
-                $this->settings[ 'nonce' ] ? [ 'nonce' => $this->settings[ 'nonce' ] ] : []
+                $attributes
             );
         }
 

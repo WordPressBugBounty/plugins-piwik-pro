@@ -2,21 +2,21 @@
 Contributors: piwikpro, piotrpress
 Tags: Piwik PRO, Piwik, analytics, website stats, woocommerce
 Requires at least: 5.7
-Tested up to: 6.7
-Stable tag: 1.3.9
+Tested up to: 6.8
+Stable tag: 1.4.0
 Requires PHP: 7.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
-Adds the Piwik PRO container (with tracking code) to your WordPress site.
+Piwik PRO - Web & App Analytics, Tag Manager, CDP and Consent Manager
 
 == Description ==
 
-A simple plugin to add the [Piwik PRO](https://piwik.pro/) container (with tracking code) to your WordPress site, making it easy to collect visitor data from any WordPress site and automatically track ecommerce in your WooCommerce store. You’ll also be able to manage consents and run tags after using this plugin.
+A simple plugin to add the [Piwik PRO Analytics Suite](https://piwik.pro/) container (with tracking code) to your WordPress site, making it easy to collect visitor data from any WordPress site and automatically track ecommerce in your WooCommerce store. You’ll also be able to manage consents and run tags after using this plugin.
 
 = What is Piwik PRO? =
 
-Piwik PRO is a privacy-first platform that offers the advanced analytics features while allowing for full control of data. It provides flexible reports and data collection in addition to consent management, tag management and a customer data platform.
+Piwik PRO is a privacy-first platform that provides advanced web and app analytics features while enabling full control over data. It provides flexible reports and data collection in addition to consent management, tag management and a customer data platform.
 
 = Analytics =
 
@@ -26,7 +26,7 @@ Collect data across websites, apps, digital products and post-login areas. Custo
 
 Add flexible tags to your analytics stack without hiring an IT team to do it. Quickly create, test and deploy tags from templates or with custom code. Coordinate tag behavior with Analytics, Customer Data Platform and Consent Manager to fit any data collection approach.
 
-= Customer Data Platform =
+= Customer Data Platform (CDP) =
 
 Build customer profiles, segment audiences and create insightful single customer views. Quickly populate the profiles using data collected with the help of Analytics and Tag Manager. Set up Consent Manager so data is only collected data when there is specific consent for it.
 
@@ -101,6 +101,11 @@ The plugin can be activated and used for just about any use case.
 1. Settings page
 
 == Changelog ==
+
+= 1.4.0 =
+**Release date: 20.08.2025**
+
+* Add: Added support for anonymous tracking with Cookiebot.
 
 = 1.3.9 =
 **Release date: 18.03.2025**

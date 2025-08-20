@@ -95,8 +95,7 @@ if ( ! class_exists( __NAMESPACE__ . '\Settings' ) ) {
                                                                              function right after the opening <code>&lt;body&gt;</code> tag, otherwise the container won’t work.' )
                                                         ]
                                                     ]
-                                                ]
-                                            ], [
+                                                ],
                                                 'layer' => [
                                                     'title' => Plugin::__( 'Data layer' ),
                                                     'default' => 'dataLayer',
@@ -112,6 +111,24 @@ if ( ! class_exists( __NAMESPACE__ . '\Settings' ) ) {
                                                             'description' => Plugin::__( 'Default: <code>dataLayer</code>. Rename the data layer if you use other software with data layers.<br />
                                                                                  If the names are the same, the software can interfere with each other. 
                                                                                  <a href="https://developers.piwik.pro/en/latest/tag_manager/data_layer_name.html#data-layer-name-guidelines" target="_blank">How to check it?</a>' )
+                                                        ]
+                                                    ]
+                                                ],
+                                                'cookiebot' => [
+                                                    'title' => Plugin::__( 'Cookiebot' ),
+                                                    'default' => false,
+                                                    'sanitize' => [ $this, 'sanitize_checkbox' ],
+                                                    'render' => [
+                                                        'callback' => [ $this, 'render_checkbox' ],
+                                                        'template' => 'input',
+                                                        'args' => [
+                                                            'field' => 'cookiebot',
+                                                            'value' => true,
+                                                            'atts' => [
+                                                                'type' => 'checkbox'
+                                                            ],
+                                                            'after' => Plugin::__( 'Enable anonymous tracking with <code>Cookiebot</code>.' ),
+                                                            'description' => Plugin::__( 'If turned on, it enables anonymous tracking with Cookiebot.' )
                                                         ]
                                                     ]
                                                 ]
