@@ -3,7 +3,7 @@ Contributors: piwikpro, piotrpress
 Tags: Piwik PRO, Piwik, analytics, website stats, woocommerce
 Requires at least: 5.7
 Tested up to: 6.8
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 Requires PHP: 7.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
@@ -101,6 +101,11 @@ The plugin can be activated and used for just about any use case.
 1. Settings page
 
 == Changelog ==
+
+= 1.4.1 =
+**Release date: 21.08.2025**
+
+* Fix: Fixed PHP Warning: `Undefined array key "cookiebot"`.
 
 = 1.4.0 =
 **Release date: 20.08.2025**
