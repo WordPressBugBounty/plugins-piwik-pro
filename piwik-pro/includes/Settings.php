@@ -38,11 +38,6 @@ if ( ! class_exists( __NAMESPACE__ . '\Settings' ) ) {
                 self::OPTION => [
                     'pages' => [
                         self::PAGE => [
-                            'render' => [
-                                'args' => [
-                                    'header' => ''
-                                ]
-                            ],
                             'title' => Plugin::__( 'Piwik PRO' ),
                             'menu' => [
                                 'title' => Plugin::__( 'Piwik PRO' ),
@@ -108,9 +103,29 @@ if ( ! class_exists( __NAMESPACE__ . '\Settings' ) ) {
                                                                 'type' => 'text',
                                                                 'class' => 'regular-text'
                                                             ],
-                                                            'description' => Plugin::__( 'Default: <code>dataLayer</code>. Rename the data layer if you use other software with data layers.<br />
-                                                                                 If the names are the same, the software can interfere with each other. 
-                                                                                 <a href="https://developers.piwik.pro/en/latest/tag_manager/data_layer_name.html#data-layer-name-guidelines" target="_blank">How to check it?</a>' )
+                                                            'description' => Plugin::__( '<strong>Default:</strong> <code>dataLayer</code>. Rename the data layer if you use other software with data layers.<br />
+                                                                             If the names are the same, the software can interfere with each other. 
+                                                                             <a href="https://developers.piwik.pro/en/latest/tag_manager/data_layer_name.html#data-layer-name-guidelines" target="_blank">How to check it?</a>' )
+                                                        ]
+                                                    ]
+                                                ],
+                                                'secure_cookies' => [
+                                                    'title' => Plugin::__( 'Secure cookies' ),
+                                                    'default' => false,
+                                                    'sanitize' => [ $this, 'sanitize_checkbox' ],
+                                                    'render' => [
+                                                        'callback' => [ $this, 'render_checkbox' ],
+                                                        'template' => 'input',
+                                                        'args' => [
+                                                            'field' => 'secure_cookies',
+                                                            'value' => false,
+                                                            'atts' => [
+                                                                'type' => 'checkbox'
+                                                            ],
+                                                            'after' => Plugin::__( 'Enable secure <a href="https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/" target="_blank">cookies</a> for Piwik PRO Tag Manager and Piwik PRO Consent Manager.' ),
+                                                            'description' => Plugin::__( 'If turned on, you’ll receive information from first-party cookies over a secure connection.<br /><br />
+                                                                             <strong>Note:</strong> Turn this on only if your website uses the <code>HTTPS</code> protocol exclusively.<br />
+                                                                             Secure <a href="https://help.piwik.pro/support/privacy/cookies-created-for-visitors-by-piwik-pro/" target="_blank">cookies</a> for Piwik PRO Analytics can be configured in your Piwik PRO tag <a href="https://help.piwik.pro/support/tag-manager/piwik-pro-tag/" target="_blank">settings</a>.' )
                                                         ]
                                                     ]
                                                 ],

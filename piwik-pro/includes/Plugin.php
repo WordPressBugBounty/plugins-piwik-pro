@@ -34,6 +34,7 @@ if ( ! class_exists( __NAMESPACE__ . '\Plugin' ) ) {
             'url' => '',
             'id' => '',
             'layer' => 'dataLayer',
+            'secure_cookies' => false,
             'cookiebot' => true,
             'woocommerce' => true
         ];
