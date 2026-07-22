@@ -2,13 +2,13 @@
 Contributors: piwikpro, piotrpress
 Tags: Piwik PRO, Piwik, analytics, website stats, woocommerce
 Requires at least: 5.7
-Tested up to: 6.9
-Stable tag: 1.5.1
+Tested up to: 7.0.2
+Stable tag: 1.5.2
 Requires PHP: 7.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
-Piwik PRO - Web & App Analytics, Tag Manager, CDP and Consent Manager
+Piwik PRO - Web & App Analytics, Tag Manager, Data Activation and Consent Manager
 
 == Description ==
 
@@ -26,7 +26,7 @@ Collect data across websites, apps, digital products and post-login areas. Custo
 
 Add flexible tags to your analytics stack without hiring an IT team to do it. Quickly create, test and deploy tags from templates or with custom code. Coordinate tag behavior with Analytics, Customer Data Platform and Consent Manager to fit any data collection approach.
 
-= Customer Data Platform (CDP) =
+= Data Activation =
 
 Build customer profiles, segment audiences and create insightful single customer views. Quickly populate the profiles using data collected with the help of Analytics and Tag Manager. Set up Consent Manager so data is only collected data when there is specific consent for it.
 
@@ -101,6 +101,11 @@ The plugin can be activated and used for just about any use case.
 1. Settings page
 
 == Changelog ==
+
+= 1.5.2 =
+**Release date: 22.07.2026**
+
+* Fix: Fixed WooCommerce::enabled() method.
 
 = 1.5.1 =
 **Release date: 05.03.2026**
