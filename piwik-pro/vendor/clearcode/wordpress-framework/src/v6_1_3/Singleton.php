@@ -49,9 +49,8 @@ if ( ! trait_exists( __NAMESPACE__ . '\Singleton' ) ) {
 
             $instance = $reflection->newInstanceWithoutConstructor();
 
-            $constructor = $reflection->getConstructor();
-            $constructor->setAccessible( true );
-            $constructor->invokeArgs( $instance, func_get_args() );
+            if ( $constructor = $reflection->getConstructor() )
+                $constructor->invokeArgs( $instance, func_get_args() );
 
             return $instance;
         }
