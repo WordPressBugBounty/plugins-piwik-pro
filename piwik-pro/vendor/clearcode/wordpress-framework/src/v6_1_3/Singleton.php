@@ -49,8 +49,11 @@ if ( ! trait_exists( __NAMESPACE__ . '\Singleton' ) ) {
 
             $instance = $reflection->newInstanceWithoutConstructor();
 
-            if ( $constructor = $reflection->getConstructor() )
+            if ( $constructor = $reflection->getConstructor() ) {
+                if ( version_compare( PHP_VERSION, '8.1', '<' ) )
+                    $constructor->setAccessible( true );
                 $constructor->invokeArgs( $instance, func_get_args() );
+            }
 
             return $instance;
         }

@@ -2,8 +2,8 @@
 Contributors: piwikpro, piotrpress
 Tags: Piwik PRO, Piwik, analytics, website stats, woocommerce
 Requires at least: 5.7
-Tested up to: 7.1.2
-Stable tag: 1.5.3
+Tested up to: 7.1.3
+Stable tag: 1.5.4
 Requires PHP: 7.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
@@ -101,6 +101,11 @@ The plugin can be activated and used for just about any use case.
 1. Settings page
 
 == Changelog ==
+
+= 1.5.4 =
+**Release date: 13.10.2026**
+
+* Fixed compatibility issue with `PHP < 8.1`.
 
 = 1.5.3 =
 **Release date: 06.10.2026**
